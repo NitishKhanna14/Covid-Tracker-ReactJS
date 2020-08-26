@@ -1,0 +1,60 @@
+.tn {
+    color: saddlebrown;
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.home {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.flex {
+    display: flexbox;
+    flex-flow: column;
+    width: 200px;
+    height: 180px;
+    border: 2px solid rebeccapurple;
+    border-bottom: 7px solid rebeccapurple;
+}
+
+.cases {
+    color: blue;
+    font-size: x-large;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    margin: 25px;
+    font-weight: bold;
+}
+
+.deathreco {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+}
+
+.death {
+    color: red;
+}
+
+.recovered {
+    color: green;
+}
+
+.select {
+    width: 250px;
+    padding: 8px;
+    color: rgb(105, 8, 8);
+}
+
+.date {
+    color: rgb(90, 84, 0);
+}

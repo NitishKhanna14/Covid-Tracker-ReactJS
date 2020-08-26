@@ -1,0 +1,44 @@
+.home {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.flex {
+    display: flexbox;
+    flex-flow: column;
+    width: 200px;
+    height: 180px;
+    border: 2px solid rebeccapurple;
+    border-bottom: 7px solid rebeccapurple;
+    background-color: rgb(255, 255, 255)
+}
+
+.cases {
+    color: blue;
+    font-size: x-large;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    margin: 25px;
+    font-weight: bold;
+}
+
+.deathreco {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+}
+
+.death {
+    color: red;
+}
+
+.recovered {
+    color: green;
+}
+
