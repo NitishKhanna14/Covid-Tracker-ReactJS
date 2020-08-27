@@ -4,8 +4,6 @@ import axios from "axios"
 import CountUp from 'react-countup';
 
 
-
-
 function Daily () {
 
     const [cities,setCities] = useState([])
@@ -17,11 +15,11 @@ function Daily () {
 
     const fetchData = async () => {
         const data = await axios.get("https://api.covid19india.org/v4/data-all.json")
-        console.log(data.data)
+        //console.log(data.data)
         const obj = data.data
         const keys = Object.keys(obj)
         const last = keys[keys.length-1]
-        setDate(last)
+        const secondLast = keys[keys.length-2]    
         const currentState = obj[last].TN.districts
         const arr = []
         for (let dis in currentState) {
@@ -29,11 +27,22 @@ function Daily () {
         }
         setCities(arr)
 
-        if (city !== " " && arr.includes(city)) {
+        if (city !== " " && arr.includes(city) && currentState[city].delta) {
+            setDate(last)
             console.log(currentState[city])
             setActive(currentState[city].delta.confirmed)
             setDeaths(currentState[city].delta.deceased)
             setRecovered(currentState[city].delta.recovered)
+        }
+
+        else if (city != " " && arr.includes(city)) {
+            //console.log("ss"+currentState[city])
+            setDate(secondLast)
+            const secondCurrent = obj[secondLast].TN.districts
+            setActive(secondCurrent[city].delta.confirmed)
+            setDeaths(secondCurrent[city].delta.deceased)
+            setRecovered(secondCurrent[city].delta.recovered)
+
         }
         
     }
@@ -59,7 +68,7 @@ function Daily () {
                 <div className="flex">
                     <div className="cases">
                         <div><CountUp start={0} end={active} duration={2}/></div>
-                        <div>Active Cases</div>
+                        <div>New Cases</div>
                     </div>
                     <div className="deathreco">
                         <div className="death">
@@ -73,7 +82,7 @@ function Daily () {
                     </div>
                 </div>
             </div>
-            <div className="date">{date !== " "? <h2>Date - {date}</h2> : <h2></h2>}</div>
+            <div className="date">{date !== " "? <h2>Date : {date}</h2> : <h2></h2>}</div>
             
             
         </div>
